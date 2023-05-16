@@ -5,7 +5,7 @@
     "build": "npm run static && cross-env NODE_ENV=production vite-ssg build",
     "dev": "vite --port 5173 --open",
     "preview": "vite preview",
-    "static": "rimraf",
+    "static": "rimraf temp",
     "lint": "eslint . --ext .vue,.ts,.html --fix"
   },
   "dependencies": {

@@ -1,6 +1,51 @@
-import App from "./App.vue"
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
 
+import autoRoutes from 'pages-generated'
+import NProgress from 'nprogress'
+import { ViteSSG } from 'vite-ssg'
+import dayjs from 'dayjs'
+import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
+import App from './App.vue'
 
-const app = createApp(App)
+const routes = autoRoutes.map((i) => {
+  return {
+    ...i,
+    alias: i.path.endsWith('/')
+      ? `${i.path}index.html`
+      : `${i.path}.html`,
+  }
+})
 
-app.mount('#app')
+export const createApp = ViteSSG(
+  App,
+  {
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+      if (savedPosition) {
+        document.body.scrollTo(savedPosition)
+        return savedPosition
+      }
+      else {
+        document.body.scrollTo({
+          top: 0,
+        })
+        return {
+          top: 0,
+        }
+      }
+    },
+  },
+  ({ router, isClient }) => {
+    dayjs.extend(LocalizedFormat)
+
+    if (isClient) {
+      router.beforeEach(() => {
+        NProgress.start()
+      })
+      router.afterEach(() => {
+        NProgress.done()
+      })
+    }
+  },
+)

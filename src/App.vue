@@ -3,7 +3,9 @@ const route = useRoute()
 </script>
 
 <template>
-  <div>
-    <p>Hello World</p>
-  </div>
+  <NavBar />
+  <main class="px-7 py-10 of-x-hidden">
+    <RouterView />
+    <Footer :key="route.path" />
+  </main>
 </template>

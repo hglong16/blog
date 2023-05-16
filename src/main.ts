@@ -6,7 +6,7 @@ import NProgress from 'nprogress'
 import { ViteSSG } from 'vite-ssg'
 import dayjs from 'dayjs'
 import LocalizedFormat from 'dayjs/plugin/localizedFormat.js'
-import App from './App.vue'
+import App from "~/App.vue"
 
 const routes = autoRoutes.map((i) => {
   return {

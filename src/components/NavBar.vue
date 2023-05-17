@@ -4,7 +4,7 @@ import { isDark } from "~/logics";
 <template>
   <header class="header-z40">
     <RouterLink
-      class="w-10 h-10 absolute lg:fixed m-6 select-none-outline-none"
+      class="w-10 h-10 absolute lg:fixed m-6 mt-3 select-none outline-none"
       to="/"
       focusable="false"
     >
@@ -22,6 +22,14 @@ import { isDark } from "~/logics";
           <span class="lt-md:hidden">Projects</span>
           <div i-ri-lightbulb-line md:hidden />
         </router-link>
+        <a
+          href="https://facebook.com/intihad.vuong"
+          target="_blank"
+          title="Facebook"
+          class="lt-md:hidden"
+        >
+          <feather-facebook />
+        </a>
         <a href="https://github.com/hglong16" target="_blank" title="Github">
           <div i-uil-github-alt />
         </a>
@@ -30,3 +38,53 @@ import { isDark } from "~/logics";
     </nav>
   </header>
 </template>
+<style scoped>
+.header h1 {
+  margin-bottom: 0;
+}
+
+.logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.nav {
+  padding: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto max-content;
+  box-sizing: border-box;
+}
+.nav > * {
+  margin: auto;
+}
+
+.nav img {
+  margin-bottom: 0;
+}
+
+.nav a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2 ease;
+  opacity: 0.6;
+  outline: none;
+}
+
+.nav a:hover {
+  opacity: 1;
+  text-decoration-color: inherit;
+}
+
+.nav .right {
+  display: grid;
+  grid-gap: 1.2rem;
+  grid-auto-flow: column;
+}
+
+.nav .right > * {
+  margin: auto;
+}
+</style>

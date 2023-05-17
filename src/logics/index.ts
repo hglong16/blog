@@ -43,3 +43,5 @@ export function toggleDark(event: MouseEvent) {
     );
   });
 }
+
+export function formatDate(d: string | Date, onlyDate = true) {}

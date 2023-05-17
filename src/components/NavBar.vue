@@ -45,7 +45,7 @@ import { isDark } from "~/logics";
 
 .logo {
   position: absolute;
-  top: 1.5rem;
+  top: 1.2rem;
   left: 1.5rem;
 }
 
